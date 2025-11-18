@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOPHROSSIA - Y Combinator Application Materials</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sage: #9CAF88;
+            --charcoal: #2C2C2C;
+            --cream: #F8F6F0;
+            --accent: #D4A574;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            margin: 0 0 1rem 0;
+            line-height: 1;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0 0 2rem 0;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+        
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .material-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .material-card .icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--accent) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .material-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+        
+        .material-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--sage);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--charcoal);
+        }
+        
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .metric {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .metric .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--sage);
+            display: block;
+        }
+        
+        .metric .label {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        .footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .key-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>SOPHROSSIA</h1>
+        <p>Y Combinator Application Materials</p>
+        <div style="font-size: 1.5rem; opacity: 0.9;">Real Food in a Bottle</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Overview Section -->
+        <div class="section">
+            <h2>Complete YC Application Package</h2>
+            <p>This comprehensive application package presents SOPHROSSIA as a premium wellness brand creating nutritionally complete, ready-to-drink meals from 100% real, recognizable food ingredients.</p>
+            <p>Our proprietary low-temperature processing technology allows us to bridge the gap between convenience and health, offering the speed of a protein shake with the nutritional integrity of a home-cooked meal.</p>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="section">
+            <h2>Key Business Metrics</h2>
+            <div class="key-metrics">
+                <div class="metric">
+                    <span class="number">$12.5B</span>
+                    <div class="label">Market Size</div>
+                </div>
+                <div class="metric">
+                    <span class="number">65%</span>
+                    <div class="label">Gross Margins</div>
+                </div>
+                <div class="metric">
+                    <span class="number">15:1</span>
+                    <div class="label">LTV:CAC Ratio</div>
+                </div>
+                <div class="metric">
+                    <span class="number">78%</span>
+                    <div class="label">Purchase Intent</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Materials -->
+        <div class="section">
+            <h2>Application Materials</h2>
+            <p>All components of the Y Combinator application are included below. Each document is designed to demonstrate clear market opportunity, technical innovation, strong team commitment, and significant growth potential.</p>
+            
+            <div class="materials-grid">
+                <!-- Pitch Deck -->
+                <div class="material-card">
+                    <div class="icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <h3>Pitch Deck</h3>
+                    <p>9-slide presentation covering problem, solution, market opportunity, business model, and team. Features premium design with interactive charts and data visualizations.</p>
+                    <a href="pitch_deck.html" class="btn">View Pitch Deck</a>
+                </div>
+
+                <!-- Main Application -->
+                <div class="material-card">
+                    <div class="icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>YC Application</h3>
+                    <p>Complete responses to all 19 YC application questions, including company description, team information, market analysis, and financial projections.</p>
+                    <a href="yc_application.md" class="btn">View Application</a>
+                </div>
+
+                <!-- Market Analysis -->
+                <div class="material-card">
+                    <div class="icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Market Analysis</h3>
+                    <p>Comprehensive market sizing, competitive landscape analysis, customer segmentation, and go-to-market strategy with detailed research and data.</p>
+                    <a href="market_analysis.md" class="btn">View Analysis</a>
+                </div>
+
+                <!-- Financial Model -->
+                <div class="material-card">
+                    <div class="icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Financial Model</h3>
+                    <p>Detailed 5-year financial projections, unit economics, customer lifetime value analysis, funding requirements, and risk assessment.</p>
+                    <a href="financial_model.md" class="btn">View Model</a>
+                </div>
+
+                <!-- Review Document -->
+                <div class="material-card">
+                    <div class="icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Review & Summary</h3>
+                    <p>Comprehensive review of all application materials, key strengths, critical success factors, and recommendations for enhancement.</p>
+                    <a href="review.md" class="btn">View Review</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Highlights -->
+        <div class="section">
+            <h2>Key Application Highlights</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--sage); margin-bottom: 1rem;">Technical Innovation</h3>
+                    <p>Proprietary low-temperature processing technology creates defensible moats and enables "real food" positioning.</p>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--sage); margin-bottom: 1rem;">Market Validation</h3>
+                    <p>50+ customer interviews with 78% purchase intent at premium pricing validates strong market demand.</p>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--sage); margin-bottom: 1rem;">Strong Economics</h3>
+                    <p>Premium positioning enables 65% gross margins with excellent unit economics and multiple revenue streams.</p>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--sage); margin-bottom: 1rem;">Massive Opportunity</h3>
+                    <p>$12.5B meal replacement market with $2.8B premium segment showing strong growth trends.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>SOPHROSSIA Y Combinator Application Package • Ready for Submission</p>
+    </div>
+</body>
+</html>
