@@ -3,45 +3,650 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOPHROSSIA - Y Combinator Application Materials</title>
-    <script>
-        // Redirect to the pitch deck
-        window.location.href = 'pitch_deck.html';
-    </script>
+    <title>SOPHROSSIA - Y Combinator Pitch Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdmirror.com/npm/mathjax@3.2.2/es5/tex-svg.min.js"></script>
     <style>
+        :root {
+            --sage: #9CAF88;
+            --charcoal: #2C2C2C;
+            --cream: #F8F6F0;
+            --accent: #D4A574;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            background: #F8F6F0;
-            color: #2C2C2C;
+            background: var(--cream);
+            color: var(--charcoal);
+            overflow: hidden;
+        }
+        
+        .slide {
+            width: 100vw;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
+            position: relative;
         }
-        .loading {
+        
+        .slide-content {
+            width: 100%;
+            height: 100%;
+            max-width: 1920px;
+            max-height: 1080px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 8vw, 8rem);
+            font-weight: 600;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.1;
+        }
+        
+        .body-text {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .accent-text {
+            color: var(--sage);
+            font-weight: 600;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, var(--sage) 0%, var(--sage) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0.1em 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 2px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 2rem;
             text-align: center;
         }
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #E8DCC6;
-            border-top: 4px solid #9CAF88;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--sage);
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--accent) 100%);
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 2px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 2rem;
+            height: 400px;
+        }
+        
+        @media (max-width: 768px) {
+            .slide-content {
+                padding: 2rem;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="loading">
-        <div class="spinner"></div>
-        <h2>Loading SOPHROSSIA Pitch Deck...</h2>
-        <p>If you're not redirected automatically, <a href="pitch_deck.html">click here</a></p>
+    <!-- Slide 1: Hero/Title -->
+    <div class="slide gradient-bg">
+        <div class="slide-content">
+            <div class="text-center text-white">
+                <h1 class="hero-title mb-8">SOPHROSSIA</h1>
+                <p class="text-2xl font-light mb-4">Real Food in a Bottle</p>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto">
+                    Nutritionally complete, ready-to-drink meals from 100% real, recognizable food ingredients
+                </p>
+                <div class="mt-12 flex justify-center space-x-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">$12.5B</div>
+                        <div class="text-sm opacity-75">Market Size</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">65%</div>
+                        <div class="text-sm opacity-75">Gross Margins</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">15:1</div>
+                        <div class="text-sm opacity-75">LTV:CAC Ratio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Slide 2: The Problem -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="grid grid-cols-2 gap-16 items-center w-full">
+                <div>
+                    <h2 class="section-title mb-8">The Modern Nutrition Dilemma</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-clock text-red-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Time Poverty</h3>
+                                <p class="body-text">Professionals work 47+ hours/week, leading to nutrition compromises</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-flask text-orange-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Synthetic Solutions</h3>
+                                <p class="body-text">Existing options are "lab food" with artificial ingredients</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-utensils text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Meal Prep Burden</h3>
+                                <p class="body-text">Healthy meal preparation requires significant time and planning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="chart-container">
+                        <div id="problemChart" style="width: 100%; height: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Our Solution -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-12">
+                <h2 class="section-title">SOPHROSSIA: The Answer</h2>
+                <p class="body-text max-w-3xl mx-auto mt-4">
+                    The first meal replacement that you don't have to think of as a "supplement" or "shake," 
+                    but as genuine, liquid whole food
+                </p>
+            </div>
+            <div class="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="stat-card">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-leaf text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Real Food Ingredients</h3>
+                    <p class="body-text text-sm">Ingredient list reads like a recipe, not a chemistry experiment</p>
+                </div>
+                <div class="stat-card">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Nutritionally Complete</h3>
+                    <p class="body-text text-sm">Balanced meal with robust protein, vitamins, and minerals</p>
+                </div>
+                <div class="stat-card">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bolt text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Ultimate Convenience</h3>
+                    <p class="body-text text-sm">No refrigeration, no preparation, consumed in seconds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Technical Innovation -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="grid grid-cols-2 gap-16 items-center w-full">
+                <div>
+                    <h2 class="section-title mb-8">Our Secret Sauce</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 accent-text">Proprietary Processing</h3>
+                            <p class="body-text mb-4">
+                                Low-temperature stabilization and homogenization process allows us to use whole foods 
+                                without compromising shelf life or texture
+                            </p>
+                            <div class="flex space-x-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Patent Pending</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Difficult to Replicate</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 accent-text">Technical Moats</h3>
+                            <ul class="space-y-2 body-text">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Preserves nutrients and flavor</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>No artificial preservatives needed</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Superior texture and taste</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>12-month shelf stability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white rounded-lg p-8 shadow-2xl">
+                        <h3 class="text-xl font-semibold mb-6 text-center">Competitive Advantage</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center py-2 border-b">
+                                <span class="font-medium">SOPHROSSIA</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b">
+                                <span>Soylent</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b">
+                                <span>Huel</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span>Premier Protein</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                    <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-xs text-gray-500 text-center">
+                            Real Food | Complete Nutrition | Convenience | Taste | Trust
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Market Opportunity -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-12">
+                <h2 class="section-title">Massive Market Opportunity</h2>
+                <p class="body-text max-w-3xl mx-auto mt-4">
+                    The health and wellness market is experiencing unprecedented growth, driven by post-pandemic consciousness and premiumization trends
+                </p>
+            </div>
+            <div class="grid grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="stat-card">
+                    <div class="stat-number">$4.4T</div>
+                    <div class="text-sm font-medium text-gray-600">Global Wellness Market</div>
+                    <div class="text-xs text-gray-500 mt-1">Growing 8.6% annually</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$12.5B</div>
+                    <div class="text-sm font-medium text-gray-600">Meal Replacement Market</div>
+                    <div class="text-xs text-gray-500 mt-1">8.2% CAGR</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$2.8B</div>
+                    <div class="text-sm font-medium text-gray-600">Premium Segment</div>
+                    <div class="text-xs text-gray-500 mt-1">Underserved opportunity</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15M</div>
+                    <div class="text-sm font-medium text-gray-600">Target Professionals</div>
+                    <div class="text-xs text-gray-500 mt-1">$100K+ income</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Business Model -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="grid grid-cols-2 gap-16 items-center w-full">
+                <div>
+                    <h2 class="section-title mb-8">Multi-Channel Revenue Model</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-desktop text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">Direct-to-Consumer (70%)</h3>
+                                <p class="body-text text-sm mb-2">Premium margins, customer relationships, brand control</p>
+                                <div class="text-sm text-gray-600">$10-12 per bottle • 65% gross margin</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-store text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">Selective Retail (20%)</h3>
+                                <p class="body-text text-sm mb-2">Premium gyms, Whole Foods, Erewhon</p>
+                                <div class="text-sm text-gray-600">$6-7 wholesale • 45% gross margin</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-hospital text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">Institutional Sales (10%)</h3>
+                                <p class="body-text text-sm mb-2">Hospitals, military, corporate wellness</p>
+                                <div class="text-sm text-gray-600">$5-6 per bottle • 55% gross margin</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="chart-container">
+                        <div id="revenueChart" style="width: 100%; height: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Traction & Metrics -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-12">
+                <h2 class="section-title">Strong Early Traction</h2>
+                <p class="body-text max-w-3xl mx-auto mt-4">
+                    Customer validation confirms strong demand at premium price points
+                </p>
+            </div>
+            <div class="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="text-sm font-medium text-gray-600">Customer Interviews</div>
+                    <div class="text-xs text-gray-500 mt-1">Deep market validation</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">78%</div>
+                    <div class="text-sm font-medium text-gray-600">Purchase Intent</div>
+                    <div class="text-xs text-gray-500 mt-1">At premium pricing</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">89%</div>
+                    <div class="text-sm font-medium text-gray-600">Problem Validation</div>
+                    <div class="text-xs text-gray-500 mt-1">Experience nutrition/time conflicts</div>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center space-x-8 bg-white rounded-lg px-8 py-4 shadow-lg">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-green-600">15:1</div>
+                        <div class="text-sm text-gray-600">LTV:CAC Ratio</div>
+                    </div>
+                    <div class="w-px h-8 bg-gray-300"></div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600">$600</div>
+                        <div class="text-sm text-gray-600">Customer LTV</div>
+                    </div>
+                    <div class="w-px h-8 bg-gray-300"></div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-purple-600">65%</div>
+                        <div class="text-sm text-gray-600">Gross Margins</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Team -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-12">
+                <h2 class="section-title">World-Class Team</h2>
+                <p class="body-text max-w-3xl mx-auto mt-4">
+                    Combined expertise in premium brand building, food science, and customer psychology
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="bg-white rounded-lg p-8 shadow-lg text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2">[Founder 1 Name]</h3>
+                    <p class="text-lg text-gray-600 mb-4">CEO & Business Lead</p>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <p>• Premium brand building expertise</p>
+                        <p>• Deep understanding of target customer psychology</p>
+                        <p>• Business strategy and fundraising experience</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg p-8 shadow-lg text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-flask text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2">[Founder 2 Name]</h3>
+                    <p class="text-lg text-gray-600 mb-4">CTO & Technical Lead</p>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <p>• Food science and engineering expertise</p>
+                        <p>• Proprietary processing technology development</p>
+                        <p>• Manufacturing and quality control experience</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <div class="inline-flex items-center space-x-4 bg-green-50 rounded-lg px-6 py-3">
+                    <i class="fas fa-handshake text-green-600"></i>
+                    <span class="text-green-800 font-medium">50/50 Equity Split • Full-time Commitment • Complementary Skills</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Why YC -->
+    <div class="slide gradient-bg">
+        <div class="slide-content text-white">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-white">Why Y Combinator?</h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto mt-4">
+                    This isn't just about funding - it's about rocket fuel for a premium physical product company
+                </p>
+            </div>
+            <div class="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Acceleration</h3>
+                    <p class="opacity-90">YC's expertise in scaling D2C brands would accelerate our growth by years</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-network-wired text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Network Access</h3>
+                    <p class="opacity-90">Access to manufacturing networks and premium retail partnerships</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-certificate text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Credibility</h3>
+                    <p class="opacity-90">YC stamp validates our vision to manufacturers and retail partners</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <div class="inline-block bg-white bg-opacity-20 rounded-lg px-8 py-4">
+                    <p class="text-lg font-medium">Ready to build the defining brand in "real food convenience"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Problem Chart
+        const problemChart = echarts.init(document.getElementById('problemChart'));
+        const problemOption = {
+            title: {
+                text: 'Customer Pain Points',
+                left: 'center',
+                textStyle: { color: '#2C2C2C', fontSize: 18, fontWeight: 600 }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c}%'
+            },
+            series: [{
+                name: 'Pain Points',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                itemStyle: {
+                    borderRadius: 10,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 16,
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    { value: 45, name: 'Time Constraints', itemStyle: { color: '#9CAF88' } },
+                    { value: 30, name: 'Synthetic Ingredients', itemStyle: { color: '#D4A574' } },
+                    { value: 25, name: 'Meal Prep Burden', itemStyle: { color: '#E8DCC6' } }
+                ]
+            }]
+        };
+        problemChart.setOption(problemOption);
+
+        // Revenue Chart
+        const revenueChart = echarts.init(document.getElementById('revenueChart'));
+        const revenueOption = {
+            title: {
+                text: '5-Year Revenue Projection',
+                left: 'center',
+                textStyle: { color: '#2C2C2C', fontSize: 18, fontWeight: 600 }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                data: ['D2C', 'Retail', 'Institutional'],
+                bottom: 10
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '15%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5']
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '${value}M'
+                }
+            },
+            series: [
+                {
+                    name: 'D2C',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: { opacity: 0.6 },
+                    emphasis: { focus: 'series' },
+                    data: [0.35, 1.75, 5.6, 14, 28],
+                    itemStyle: { color: '#9CAF88' }
+                },
+                {
+                    name: 'Retail',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: { opacity: 0.6 },
+                    emphasis: { focus: 'series' },
+                    data: [0.1, 0.5, 1.6, 4, 8],
+                    itemStyle: { color: '#D4A574' }
+                },
+                {
+                    name: 'Institutional',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: { opacity: 0.6 },
+                    emphasis: { focus: 'series' },
+                    data: [0.05, 0.25, 0.8, 2, 4],
+                    itemStyle: { color: '#E8DCC6' }
+                }
+            ]
+        };
+        revenueChart.setOption(revenueOption);
+
+        // Make charts responsive
+        window.addEventListener('resize', function() {
+            problemChart.resize();
+            revenueChart.resize();
+        });
+    </script>
 </body>
 </html>
